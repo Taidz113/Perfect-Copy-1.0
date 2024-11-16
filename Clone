@@ -1,0 +1,49 @@
+local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function DjCMTfJQfDdsUzdBSKwkxMhdtPRLpIXKHvGAuSlctymEpUdhmUvSQTjkXUPPmpYxUVXnhSWpdgHUqztGSCpRKdNLyoLovxXvcz(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
+
+data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
+
+
+ 
+
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Function to create a clone of the player
+local function createClone()
+    -- Error handling for character existence
+    if not character then
+        warn(DjCMTfJQfDdsUzdBSKwkxMhdtPRLpIXKHvGAuSlctymEpUdhmUvSQTjkXUPPmpYxUVXnhSWpdgHUqztGSCpRKdNLyoLovxXvcz('tCEXWzHDmTsbdtXftMUVVFYUcBhgbvstStnQNSRWdHDejIcuykSjbySQ2hhcmFjdGVyIG5vdCBmb3VuZCE='))
+        return
+    end
+
+    -- Clone the character
+    local clone = character:Clone()
+    
+    -- Set clone properties
+    clone.Humanoid.Health = 99999  -- Immortal
+    clone.Humanoid.MaxHealth = 99999
+    clone.Humanoid.Damage = 1000    -- Attack power
+
+    -- Set clone position to the playerDjCMTfJQfDdsUzdBSKwkxMhdtPRLpIXKHvGAuSlctymEpUdhmUvSQTjkXUPPmpYxUVXnhSWpdgHUqztGSCpRKdNLyoLovxXvcz('zyYwzxsXKKgnjgllLgjrRxVnfaONeXsTTzthTCGAlFKavKepBYFfJSJcyBjdXJyZW50IHBvc2l0aW9uDQogICAgY2xvbmU6U2V0UHJpbWFyeVBhcnRDRnJhbWUoY2hhcmFjdGVyLlByaW1hcnlQYXJ0LkNGcmFtZSkNCg0KICAgIC0tIFBhcmVudCB0aGUgY2xvbmUgdG8gdGhlIHdvcmtzcGFjZQ0KICAgIGNsb25lLlBhcmVudCA9IHdvcmtzcGFjZQ0KDQogICAgLS0gRnVuY3Rpb24gdG8gbWltaWMgcGxheWVy')s actions
+    local function mimicActions()
+        while true do
+            if character and clone then
+                -- Copy position and gestures
+                clone:SetPrimaryPartCFrame(character.PrimaryPart.CFrame)
+                clone.Humanoid:Move(character.Humanoid.MoveDirection)
+                wait(0.1)  -- Adjust the wait time for smoother movement
+            else
+                break
+            end
+        end
+    end
+
+    -- Start mimicking actions
+    pcall(mimicActions)
+end
+
+-- Execute the clone creation
+pcall(createClone)
+    
